@@ -8,9 +8,200 @@
       content="Register students easily and effectively — create, edit, and delete records in a smooth and secure system."
     />
     <link rel="stylesheet" href="/assets/css/styles.css" />
+    <!--- favicon  --->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/img/favIcon.png"
+    />
     <title>Student Registration System</title>
   </head>
   <body>
-    <script src="script.js"></script>
+    <header class="site-header" role="banner">
+      <div class="container">
+        <h1 class="site-title">Student Registration System</h1>
+        <p class="site-subtitle">
+          Register students, edit records, delete entries and keep data
+          persisted in local storage.
+        </p>
+      </div>
+    </header>
+
+    <main class="container" id="main-content" role="main">
+      <!-- Registration section -->
+      <section aria-labelledby="form-heading" class="registration-section">
+        <h2 id="form-heading">Register a New Student</h2>
+
+        <!-- Form: script will handle submit & validation -->
+        <form
+          id="student-form"
+          novalidate
+          autocomplete="off"
+          aria-describedby="form-help"
+        >
+          <p id="form-help" class="sr-only">
+            All fields are required unless marked optional.
+          </p>
+
+          <div class="form-row">
+            <label for="studentId"
+              >Student ID <span aria-hidden="true">*</span></label
+            >
+            <input
+              id="studentId"
+              name="studentId"
+              type="text"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              required
+              placeholder="e.g. 1001"
+              aria-required="true"
+            />
+            <div
+              class="field-error"
+              id="error-studentId"
+              aria-live="polite"
+            ></div>
+          </div>
+
+          <div class="form-row">
+            <label for="studentName"
+              >Full Name <span aria-hidden="true">*</span></label
+            >
+            <input
+              id="studentName"
+              name="studentName"
+              type="text"
+              required
+              placeholder="e.g. John Doe"
+              aria-required="true"
+            />
+            <div
+              class="field-error"
+              id="error-studentName"
+              aria-live="polite"
+            ></div>
+          </div>
+
+          <div class="form-row">
+            <label for="studentEmail"
+              >Email <span aria-hidden="true">*</span></label
+            >
+            <input
+              id="studentEmail"
+              name="studentEmail"
+              type="email"
+              required
+              placeholder="e.g. jane@example.com"
+              aria-required="true"
+            />
+            <div
+              class="field-error"
+              id="error-studentEmail"
+              aria-live="polite"
+            ></div>
+          </div>
+
+          <div class="form-row">
+            <label for="studentContact"
+              >Contact Number <span aria-hidden="true">*</span></label
+            >
+            <input
+              id="studentContact"
+              name="studentContact"
+              type="tel"
+              inputmode="tel"
+              required
+              placeholder="e.g. 9876543210"
+              aria-required="true"
+            />
+            <div
+              class="field-error"
+              id="error-studentContact"
+              aria-live="polite"
+            ></div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" id="addStudentBtn" class="btn primary">
+              Add Student
+            </button>
+            <button type="reset" id="resetFormBtn" class="btn">Reset</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Display / Records section -->
+      <section aria-labelledby="records-heading" class="records-section">
+        <h2 id="records-heading">Registered Students</h2>
+
+        <!-- Controls: search/sort placeholders for later tasks -->
+        <div class="records-controls">
+          <input
+            id="searchInput"
+            type="search"
+            placeholder="Search by name or ID"
+            aria-label="Search students"
+          />
+          <div class="records-meta" aria-hidden="true">
+            Total: <span id="recordsCount">0</span>
+          </div>
+        </div>
+
+        <!-- Table container: script will render rows here. Provide max-height in CSS so it can overflow and show scrollbar. -->
+        <div
+          id="recordsContainer"
+          class="records-container"
+          role="region"
+          aria-live="polite"
+          aria-label="List of registered students"
+        >
+          <table
+            id="studentsTable"
+            class="students-table"
+            aria-describedby="records-heading"
+          >
+            <caption class="sr-only">
+              List of registered students with actions to edit or delete
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Contact</th>
+                <th scope="col">Course</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="studentsTbody">
+              <!-- JS will insert <tr> rows here -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <div class="container">
+        <small
+          >© <span id="year"></span> Student Registration System — Built with
+          HTML, CSS &amp; JavaScript</small
+        >
+      </div>
+    </footer>
+
+    <!-- Main application script (deferred) -->
+    <script src="js/script.js" defer></script>
+
+    <!-- Small inline script to set dynamic year; keeping footer tidy without touching main script -->
+    <script>
+      (function () {
+        var y = new Date().getFullYear();
+        var el = document.getElementById("year");
+        if (el) el.textContent = y;
+      })();
+    </script>
   </body>
 </html>
