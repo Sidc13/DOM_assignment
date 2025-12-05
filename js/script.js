@@ -131,6 +131,25 @@ studentForm.addEventListener("submit", function (e) {
 });
 
 // ------------------------------
+// Delete Student Handler
+// ------------------------------
+studentsTbody.addEventListener("click", function (e) {
+  if (!e.target.classList.contains("delete-btn")) return;
+
+  const index = e.target.getAttribute("data-index");
+  const students = getStudents();
+
+  const confirmed = confirm(
+    `Are you sure you want to delete Student ID: ${students[index].studentId}?`
+  );
+  if (!confirmed) return;
+
+  students.splice(index, 1);
+  saveStudents(students);
+  renderStudents();
+});
+
+// ------------------------------
 // Initial Load
 // ------------------------------
 document.addEventListener("DOMContentLoaded", renderStudents);
