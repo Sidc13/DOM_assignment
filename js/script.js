@@ -196,6 +196,18 @@ studentsTbody.addEventListener("click", function (e) {
   if (!confirmed) return;
 
   students.splice(index, 1);
+
+  // Bug Fix: handle edit state
+  //If a record was deleted while it was being edited then the submission froze/failed.
+  //So simply put, we just exit edit mode
+  if (editIndex !== null) {
+    if (index === editIndex) {
+      resetToAddMode();
+    } else if (index < editIndex) {
+      editIndex--;
+    }
+  }
+
   saveStudents(students);
   renderStudents();
 });
