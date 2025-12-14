@@ -15,13 +15,9 @@ student-registration-form/
 ├── index.html
 ├── README.md
 ├── .gitignore
-├── assets
-│ ├── css
-│ │ └── styles.css
-│ └── img
-│ └── favIcon.png
-└── js
-└──script.js
+├── styles.css
+├── favIcon.png
+└── script.js
 
 ## 🔧 Technologies Used
 
@@ -42,3 +38,5 @@ Just open the file in any modern browser.
 This project is created strictly for educational purposes as part of a coursework assignment.
 
 ## Built by Siddharth Chhetri for the PGCFSD Internshala (mail: siddharthchhetri13@gmail.com)
+
+github link

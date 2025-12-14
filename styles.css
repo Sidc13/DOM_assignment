@@ -1,0 +1,217 @@
+/* ------------------------------
+   Base Reset & Typography
+------------------------------ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f7f9fc;
+  color: #222;
+  line-height: 1.6;
+}
+
+/* Utility */
+.container {
+  width: min(90%, 1000px);
+  margin-inline: auto;
+}
+
+/* ------------------------------
+   Header & Footer
+------------------------------ */
+.site-header,
+.site-footer {
+  padding: 1rem 0;
+  text-align: center;
+  background: #fff;
+  border-bottom: 1px solid #e4e4e4;
+}
+
+.site-footer {
+  border-top: 1px solid #e4e4e4;
+  border-bottom: 0;
+  margin-top: 2rem;
+}
+
+.site-title {
+  font-size: 1.8rem;
+  margin-bottom: 0.25rem;
+}
+
+/* ------------------------------
+   Form Section
+------------------------------ */
+.registration-section {
+  margin-top: 2rem;
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #e4e4e4;
+}
+
+.registration-section h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.form-row {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="search"] {
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+input:focus {
+  outline: none;
+  border-color: #0066ff;
+  box-shadow: 0 0 0 2px rgba(0, 102, 255, 0.25);
+}
+
+.field-error {
+  color: #c62828;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+  min-height: 1rem;
+}
+
+/* Buttons */
+.btn {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  background: #eee;
+}
+
+.btn.primary {
+  background: #0066ff;
+  color: #fff;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.form-actions {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+/* ------------------------------
+   Records Table
+------------------------------ */
+.records-section {
+  margin-top: 2rem;
+}
+
+.records-section h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.records-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+
+.records-meta {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Scrollable container */
+.records-container {
+  max-height: 300px; /* The requirement for a vertical scroll */
+  overflow-y: auto;
+  border: 1px solid #e4e4e4;
+  background: #fff;
+  border-radius: 8px;
+}
+
+/* Table styling */
+.students-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.students-table thead tr {
+  background: #eaf1ff;
+}
+
+.students-table th,
+.students-table td {
+  text-align: left;
+  padding: 0.75rem;
+  border-bottom: 1px solid #e4e4e4;
+  font-size: 0.95rem;
+}
+
+.students-table tbody tr:hover {
+  background: #f2f7ff;
+}
+
+.students-table td:last-child {
+  white-space: nowrap;
+}
+
+/* Edit/Delete Button Styles */
+.action-btn {
+  border: none;
+  background: transparent;
+  color: #0066ff;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.action-btn:hover {
+  text-decoration: underline;
+}
+
+/* ------------------------------
+   Responsive Behavior
+------------------------------ */
+@media (max-width: 600px) {
+  .records-controls {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: stretch;
+  }
+
+  .form-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .site-title {
+    font-size: 1.5rem;
+  }
+}
